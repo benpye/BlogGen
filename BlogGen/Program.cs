@@ -35,6 +35,8 @@ namespace BlogGen
                 return 1;
             }
 
+            Console.WriteLine("Outputting files to {0}, templates {1} with driver {2}", args[3], args[1], args[0]);
+
             var config = new TemplateServiceConfiguration();
             config.DisableTempFileLocking = true;
             config.CachingProvider = new DefaultCachingProvider(t => { });

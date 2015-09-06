@@ -72,6 +72,7 @@ namespace BlogGen
             Directory.CreateDirectory(Path.GetDirectoryName(outPath));
 
             File.WriteAllText(outPath, file.Html);
+            Console.WriteLine("Writing to {0}", outPath);
 
             return file;
         }
