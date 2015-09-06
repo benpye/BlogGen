@@ -54,13 +54,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px 16px;
 }
 
-.post-content code {
+.post-content p>code {
     font-family: 'Source Code Pro', monospace;
     background-color: #eeeef0;
     font-size: 85%;
 }
 
-.post-content code::before, .post-content code::after {
+.post-content p>code::before, .post-content p>code::after {
     letter-spacing: -0.2em;
     content: "\00a0";
 }
