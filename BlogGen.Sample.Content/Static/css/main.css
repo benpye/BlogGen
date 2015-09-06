@@ -1,0 +1,97 @@
+
+html {
+    overflow-y:scroll;
+}
+
+body {
+    text-align: center;
+    font-family: 'Source Serif Pro', serif;
+    color: #444444;
+    background-color: #fffffa;
+    margin: auto;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+}
+
+#header {
+    background: #eeeef0;
+    padding: 16px 0px;
+    margin-bottom: -1px;
+    position: relative;
+}
+
+.post {
+    max-width: 768px;
+    width: 80%;
+    display: inline-block;
+    padding: 8px 16px;
+    border-top: 1px solid #aaaaaa;
+}
+
+.post-content {
+    text-align: left;
+}
+
+.post-content a {
+    color: #4444ff;
+}
+
+.post-content img {
+    margin: 16px auto;
+    display: block;
+    max-width: 100%;
+}
+
+.post-content>pre {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #eeeef0;
+    padding: 8px 16px;
+}
+
+.post-content code {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #eeeef0;
+    font-size: 85%;
+}
+
+.post-content code::before, .post-content code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.gist-data {
+    max-height: 256px;
+}
+
+.youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: 16px 0;
+}
+
+.youtube iframe, .youtube object, .youtube embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.post-read-more {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}

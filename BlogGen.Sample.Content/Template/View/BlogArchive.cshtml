@@ -1,0 +1,39 @@
+@using BlogGen
+@using BlogGen.Sample
+@using System.Linq
+@{
+    Layout = "Parent";
+    ViewBag.Title = "Archive";
+}
+
+@{
+    var groupedPosts =
+        from p in Model.Gen.Files.OfView("BlogPost").SortPostsByDate()
+        let date = DateTime.Parse(p.Properties["Time"])
+        group p by date into yg
+        select
+            new
+            {
+                Year = yg.Key,
+                MonthGroups =
+                    from o in yg
+                    let odate = DateTime.Parse(o.Properties["Time"])
+                    group o by odate into mg
+                    select new { Month = mg.Key, Posts = mg }
+            };
+}
+
+@foreach(var year in groupedPosts)
+{
+    @foreach(var month in year.MonthGroups)
+    {
+        <div class="post">
+            <h2>@month.Month.ToString("MMMM yyyy")</h2>
+            <h3>~~~</h3>
+            @foreach(var file in month.Posts)
+            {
+                <h3>@DateTime.Parse(file.Properties["Time"]).ToString("dddd d MMMM yyyy") - <a href="@file.TargetFile">@file.Properties["Title"]</a></h3>
+            }
+        </div>
+    }
+}

@@ -1,0 +1,27 @@
+@using BlogGen
+@using BlogGen.Sample
+@using System.Linq
+@{
+    Layout = "Parent";
+    ViewBag.Title = "Curlybracket Blog";
+}
+
+@foreach(var file in Model.Gen.Files.OfView("BlogPost").SortPostsByDate().Take(5))
+{
+	<div class="post">
+		@{var fileContent = @file.Content.GetPreviewContent();}
+		<h2><a href='@file.TargetFile'>@file.Properties["Title"]</a></h2>
+		<h3>@DateTime.Parse(file.Properties["Time"]).ToString("dddd d MMMM yyyy")</h3>
+		<h3>~~~</h3>
+		<div class="post-content">
+			@Raw(fileContent[0])
+		</div>
+		@if(fileContent.Length > 1)
+		{
+			<h3 class="post-read-more"><a href="@file.TargetFile">read more</a></h3>
+		}
+	</div>
+}
+<div class="post">
+	<h3><a href="/blog/archive/">looking for something older?</a></h3>
+</div>
