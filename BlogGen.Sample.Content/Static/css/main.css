@@ -23,10 +23,13 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-.post {
+.content {
     max-width: 768px;
     width: 80%;
     display: inline-block;
+}
+
+.post {
     padding: 8px 16px;
     border-top: 1px solid #aaaaaa;
 }

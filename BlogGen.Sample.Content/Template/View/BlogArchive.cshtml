@@ -23,17 +23,19 @@
             };
 }
 
-@foreach(var year in groupedPosts)
-{
-    @foreach(var month in year.MonthGroups)
+<div class="content">
+    @foreach(var year in groupedPosts)
     {
-        <div class="post">
-            <h2>@month.Month.ToString("MMMM yyyy")</h2>
-            <h3>~~~</h3>
-            @foreach(var file in month.Posts)
-            {
-                <h3>@DateTime.Parse(file.Properties["Time"]).ToString("dddd d MMMM yyyy") - <a href="@file.TargetFile">@file.Properties["Title"]</a></h3>
-            }
-        </div>
+        @foreach(var month in year.MonthGroups)
+        {
+            <div class="post">
+                <h2>@month.Month.ToString("MMMM yyyy")</h2>
+                <h3>~~~</h3>
+                @foreach(var file in month.Posts)
+                {
+                    <h3>@DateTime.Parse(file.Properties["Time"]).ToString("dddd d MMMM yyyy") - <a href="@file.TargetFile">@file.Properties["Title"]</a></h3>
+                }
+            </div>
+        }
     }
-}
+</div>
